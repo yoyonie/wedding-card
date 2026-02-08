@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모바일 청첩장</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nanum Myeongjo', serif;
+            background-color: #f9f6f2;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: white;
+        }
+
+        /* 헤더 이미지 섹션 */
+        .header-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #d4b5a4 0%, #e8d5c4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-image::before {
+            content: '🌸';
+            font-size: 120px;
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        /* 메인 타이틀 */
+        .main-title {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+        }
+
+        .main-title h1 {
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #6b5d54;
+        }
+
+        .main-title .date {
+            font-size: 16px;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        /* 인사말 섹션 */
+        .greeting {
+            padding: 30px 30px;
+            text-align: center;
+            border-top: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .greeting p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* 신랑신부 정보 */
+        .couple-info {
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .couple-names {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .person {
+            flex: 1;
+            max-width: 150px;
+        }
+
+        .person .role {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .person .name {
+            font-size: 24px;
+            font-weight: 600;
+            color: #6b5d54;
+            margin-bottom: 15px;
+        }
+
+        .person .parents {
+            font-size: 13px;
+            color: #777;
+            line-height: 1.6;
+        }
+
+        .heart {
+            font-size: 20px;
+            color: #d4a5a5;
+        }
+
+        /* 예식 정보 */
+        .ceremony-info {
+            background: #fafafa;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .info-item {
+            margin: 20px 0;
+        }
+
+        .info-item .label {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .info-item .value {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* 갤러리 */
+        .gallery {
+            padding: 40px 20px;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #6b5d54;
+            font-weight: 400;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #e8d5c4 0%, #d4b5a4 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+
+        /* 지도 섹션 */
+        .location {
+            padding: 40px 30px;
+            background: white;
+        }
+
+        .location h2 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #6b5d54;
+            font-weight: 400;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 300px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #999;
+        }
+
+        .location-details {
+            text-align: center;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        /* 연락하기 버튼 */
+        .contact {
+            padding: 30px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .contact-btn {
+            flex: 1;
+            max-width: 150px;
+            padding: 15px;
+            background: white;
+            border: 1px solid #d4b5a4;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #d4b5a4;
+            color: white;
+        }
+
+        .contact-btn .icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .contact-btn .text {
+            font-size: 13px;
+        }
+
+        /* 계좌번호 섹션 */
+        .account {
+            padding: 40px 30px;
+            background: #fafafa;
+        }
+
+        .account h2 {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #6b5d54;
+            font-weight: 400;
+        }
+
+        .account-info {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .account-info .side {
+            font-size: 14px;
+            color: #d4a5a5;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .account-info .detail {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        /* 마무리 메시지 */
+        .footer {
+            padding: 40px 30px;
+            text-align: center;
+            background: white;
+        }
+
+        .footer p {
+            font-size: 15px;
+            color: #777;
+            line-height: 1.8;
+        }
+
+        .footer .flower {
+            font-size: 30px;
+            margin: 20px 0;
+        }
+
+        /* 공유하기 버튼 */
+        .share-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #d4a5a5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .share-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 헤더 이미지 -->
+        <div class="header-image"></div>
+
+        <!-- 메인 타이틀 -->
+        <div class="main-title">
+            <h1>결혼합니다</h1>
+            <p class="date">2026년 3월 15일 토요일 오후 2시</p>
+        </div>
+
+        <!-- 인사말 -->
+        <div class="greeting">
+            <p>
+                평생을 함께할 반려자를 만났습니다.<br>
+                저희 두 사람이 사랑과 믿음으로<br>
+                한 가정을 이루는 첫 걸음,<br>
+                소중한 분들을 모시고 약속하고자 합니다.
+            </p>
+            <p>
+                바쁘시더라도 참석하시어<br>
+                축복해 주시면 감사하겠습니다.
+            </p>
+        </div>
+
+        <!-- 신랑신부 정보 -->
+        <div class="couple-info">
+            <div class="couple-names">
+                <div class="person">
+                    <div class="role">신랑</div>
+                    <div class="name">김민수</div>
+                    <div class="parents">
+                        김아버지·이어머니의 장남
+                    </div>
+                </div>
+                <div class="heart">♥</div>
+                <div class="person">
+                    <div class="role">신부</div>
+                    <div class="name">박지은</div>
+                    <div class="parents">
+                        박아버지·최어머니의 차녀
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 예식 정보 -->
+        <div class="ceremony-info">
+            <div class="info-item">
+                <div class="label">일시</div>
+                <div class="value">2026년 3월 15일 토요일 오후 2시</div>
+            </div>
+            <div class="info-item">
+                <div class="label">장소</div>
+                <div class="value">서울 강남구 테헤란로 123</div>
+                <div class="value">그랜드 웨딩홀 3층 그레이스홀</div>
+            </div>
+        </div>
+
+        <!-- 갤러리 -->
+        <div class="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">📷</div>
+                <div class="gallery-item">💐</div>
+                <div class="gallery-item">💑</div>
+                <div class="gallery-item">🌸</div>
+                <div class="gallery-item">💒</div>
+                <div class="gallery-item">💕</div>
+            </div>
+        </div>
+
+        <!-- 오시는 길 -->
+        <div class="location">
+            <h2>오시는 길</h2>
+            <div class="map-placeholder">
+                🗺️ 지도
+            </div>
+            <div class="location-details">
+                <p><strong>서울 강남구 테헤란로 123</strong></p>
+                <p>그랜드 웨딩홀 3층 그레이스홀</p>
+                <p style="margin-top: 15px;">
+                    <strong>지하철</strong><br>
+                    2호선 강남역 3번 출구 도보 5분<br>
+                    <strong>버스</strong><br>
+                    강남역 정류장 하차<br>
+                    <strong>주차</strong><br>
+                    건물 내 주차 가능 (2시간 무료)
+                </p>
+            </div>
+        </div>
+
+        <!-- 연락하기 -->
+        <div class="contact">
+            <div class="contact-btn" onclick="callGroom()">
+                <div class="icon">📞</div>
+                <div class="text">신랑에게 연락</div>
+            </div>
+            <div class="contact-btn" onclick="callBride()">
+                <div class="icon">📞</div>
+                <div class="text">신부에게 연락</div>
+            </div>
+        </div>
+
+        <!-- 계좌번호 -->
+        <div class="account">
+            <h2>마음 전하실 곳</h2>
+            <div class="account-info">
+                <div class="side">신랑측</div>
+                <div class="detail">💳 KB국민은행 123-456-789012</div>
+                <div class="detail">예금주: 김민수</div>
+            </div>
+            <div class="account-info">
+                <div class="side">신부측</div>
+                <div class="detail">💳 신한은행 987-654-321098</div>
+                <div class="detail">예금주: 박지은</div>
+            </div>
+        </div>
+
+        <!-- 마무리 -->
+        <div class="footer">
+            <div class="flower">🌸</div>
+            <p>
+                두 사람의 새로운 시작을<br>
+                함께 축하해 주셔서 감사합니다.
+            </p>
+            <div class="flower">🌸</div>
+        </div>
+
+        <!-- 공유하기 버튼 -->
+        <div class="share-btn" onclick="shareInvitation()">📤</div>
+    </div>
+
+    <script>
+        function callGroom() {
+            alert('신랑 연락처: 010-1234-5678');
+            // 실제로는 window.location.href = 'tel:010-1234-5678'; 사용
+        }
+
+        function callBride() {
+            alert('신부 연락처: 010-8765-4321');
+            // 실제로는 window.location.href = 'tel:010-8765-4321'; 사용
+        }
+
+        function shareInvitation() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '모바일 청첩장',
+                    text: '저희 결혼식에 초대합니다',
+                    url: window.location.href
+                }).catch(err => console.log('공유 실패:', err));
+            } else {
+                // 공유 API 미지원 시 URL 복사
+                const url = window.location.href;
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(url).then(() => {
+                        alert('링크가 복사되었습니다!');
+                    });
+                } else {
+                    alert('이 링크를 공유하세요: ' + url);
+                }
+            }
+        }
+
+        // 부드러운 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
