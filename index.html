@@ -29,10 +29,10 @@
     font-display: swap;
   }
 
-  /* 3. WeddingSans (원본: Chosun Nm) — 본문 한글/영문 */
+  /* 3. WeddingSans (원본: Jeju Myeongjo) — 본문 한글/영문 */
   @font-face {
     font-family: 'WeddingSans';
-    src: url('./fonts/ChosunNm.ttf') format('truetype');
+    src: url('./fonts/JejuMyeongjo.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -371,8 +371,8 @@
     background:radial-gradient(circle,rgba(201,169,110,.07) 0%,transparent 70%);
     pointer-events:none;
   }
-  .inv-text { font-size:.9rem; line-height:2.2; color:var(--charcoal); text-align:center; word-break:keep-all; font-weight:400; }
-  .inv-text strong { font-weight:400; color:var(--dark-brown); }
+  .inv-text { font-family:'WeddingSans',serif; font-size:.9rem; line-height:2.2; color:var(--charcoal); text-align:center; word-break:keep-all; font-weight:400; }
+  .inv-text strong { font-family:'WeddingSans',serif; font-weight:600; color:var(--dark-brown); }
 
   .parents-row { display:flex; gap:12px; margin-top:4px; }
   .parents-card {
@@ -382,8 +382,8 @@
   }
   .p-label  { font-size:.55rem; letter-spacing:.22em; color:var(--gold); text-transform:uppercase; margin-bottom:10px; }
   .p-name   { font-family:'WeddingSerif',serif; font-size:1.35rem; font-weight:700; color:var(--dark-brown); letter-spacing:.06em; margin-bottom:8px; }
-  .p-parents{ font-size:.78rem; color:var(--mid-brown); line-height:1.9; font-weight:700; }
-  .p-rel    { font-size:.68rem; color:var(--light-brown); margin-top:4px; font-weight:700; }
+  .p-parents{ font-size:.78rem; color:var(--mid-brown); line-height:1.9; font-weight:400; }
+  .p-rel    { font-size:.68rem; color:var(--light-brown); margin-top:4px; font-weight:400; }
 
   /* ══════════════════════════════
      SAVE THE DATE
@@ -409,7 +409,7 @@
 
   .date-badge { margin-top:22px; text-align:center; padding:20px; background:linear-gradient(135deg,rgba(201,169,110,.05),rgba(201,169,110,.10)); border-radius:var(--radius-lg); border:1px solid rgba(201,169,110,.14); }
   .date-badge-main { font-family:'WeddingSerif',serif; font-size:1.3rem; color:var(--dark-brown); font-weight:700; letter-spacing:.04em; }
-  .date-badge-time { font-size:.88rem; color:var(--mid-brown); margin-top:5px; letter-spacing:.06em; font-weight:700; }
+  .date-badge-time { font-size:.88rem; color:var(--mid-brown); margin-top:5px; letter-spacing:.06em; font-weight:400; }
 
   /* ══════════════════════════════
      LOCATION
@@ -418,7 +418,7 @@
 
   .venue-name { text-align:center; margin-bottom:22px; }
   .venue-title { font-family:'WeddingSerif',serif; font-size:1.75rem; font-weight:700; color:var(--dark-brown); letter-spacing:.02em; }
-  .venue-sub { font-size:.85rem; color:var(--mid-brown); margin-top:6px; letter-spacing:.04em; font-weight:700; }
+  .venue-sub { font-size:.85rem; color:var(--mid-brown); margin-top:6px; letter-spacing:.04em; font-weight:400; }
 
   /* 지도 비주얼 (CSS-only grid, no image required) */
   .map-vis {
@@ -482,8 +482,8 @@
   .tab-panel.on { display:block; animation:tabIn .3s ease; }
   @keyframes tabIn { from{opacity:0;transform:translateY(5px);} to{opacity:1;transform:translateY(0);} }
 
-  .info-box { background:#fff; border-radius:var(--radius-lg); padding:20px 18px; border:1px solid var(--beige); font-size:.88rem; color:var(--mid-brown); line-height:1.95; font-weight:700; }
-  .info-box strong { color:var(--dark-brown); font-weight:700; }
+  .info-box { background:#fff; border-radius:var(--radius-lg); padding:20px 18px; border:1px solid var(--beige); font-size:.88rem; color:var(--mid-brown); line-height:1.95; font-weight:400; }
+  .info-box strong { color:var(--dark-brown); font-weight:600; }
 
   /* ══════════════════════════════
      GALLERY — Bento Grid
@@ -551,11 +551,11 @@
   .acc-header { padding:18px 20px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; user-select:none; transition:background .2s ease; }
   .acc-header:active { background:var(--ivory); }
   .acc-title { font-size:.95rem; font-weight:700; color:var(--dark-brown); letter-spacing:.02em; }
-  .acc-sub   { font-size:.72rem; color:var(--light-brown); margin-top:2px; letter-spacing:.04em; font-weight:700; }
+  .acc-sub   { font-size:.72rem; color:var(--light-brown); margin-top:2px; letter-spacing:.04em; font-weight:400; }
   .acc-chevron { width:28px; height:28px; background:var(--ivory); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.75rem; color:var(--mid-brown); transition:transform .4s cubic-bezier(.34,1.56,.64,1); flex-shrink:0; }
   .acc-item.open .acc-chevron { transform:rotate(180deg); }
   .acc-body { max-height:0; overflow:hidden; padding:0 18px; transition:max-height .5s cubic-bezier(.16,1,.3,1),padding .3s ease; }
-  .acc-item.open .acc-body { max-height:380px; padding:0 18px 20px; }
+  .acc-item.open .acc-body { max-height:520px; padding:0 18px 20px; }
 
   .bank-row { background:var(--ivory); border-radius:16px; padding:15px; margin-bottom:10px; }
   .bank-name { font-size:.62rem; color:var(--light-brown); letter-spacing:.1em; margin-bottom:5px; }
@@ -576,9 +576,31 @@
   .contact-card { background:#fff; border:1px solid var(--beige); border-radius:var(--radius-lg); padding:17px 12px; text-align:center; text-decoration:none; display:block; transition:all .25s cubic-bezier(.34,1.56,.64,1); }
   .contact-card:hover  { box-shadow:var(--shadow-soft); border-color:var(--gold-light); transform:translateY(-2px); }
   .contact-card:active { transform:scale(.94); }
-  .cc-role  { font-size:.55rem; letter-spacing:.16em; color:var(--light-brown); margin-bottom:4px; text-transform:uppercase; }
-  .cc-name  { font-family:'WeddingSerif',serif; font-size:1.05rem; font-weight:400; color:var(--dark-brown); margin-bottom:5px; letter-spacing:.06em; }
-  .cc-phone { font-size:.68rem; color:var(--gold-dark); letter-spacing:.03em; }
+  .cc-role  { font-size:.55rem; letter-spacing:.16em; color:var(--light-brown); margin-bottom:6px; text-transform:uppercase; }
+  .cc-name  { font-family:'WeddingSerif',serif; font-size:1.05rem; font-weight:400; color:var(--dark-brown); margin-bottom:10px; letter-spacing:.06em; }
+  .cc-call-icon { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; background:linear-gradient(135deg,rgba(201,169,110,.15),rgba(201,169,110,.08)); border:1px solid rgba(201,169,110,.25); border-radius:50%; transition:all .2s ease; }
+  .cc-call-icon svg { width:16px; height:16px; }
+  .contact-card:hover .cc-call-icon { background:var(--gold); border-color:var(--gold); }
+  .contact-card:hover .cc-call-icon svg path { fill:#fff; }
+
+  /* Contact Parents 아코디언 */
+  .contact-parents-wrap { margin-top:10px; }
+  .contact-parents-btn {
+    width:100%; padding:13px 20px;
+    background:#fff; border:1px solid var(--beige);
+    border-radius:var(--radius-lg);
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    font-size:.75rem; color:var(--mid-brown); letter-spacing:.06em;
+    cursor:pointer; font-family:inherit;
+    transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  }
+  .contact-parents-btn:hover { border-color:var(--gold-light); color:var(--gold-dark); background:rgba(201,169,110,.04); }
+  .contact-parents-btn:active { transform:scale(.97); }
+  .contact-parents-btn .cpb-chevron { font-size:.7rem; transition:transform .4s cubic-bezier(.34,1.56,.64,1); }
+  .contact-parents-btn.open .cpb-chevron { transform:rotate(180deg); }
+  .contact-parents-body { max-height:0; overflow:hidden; transition:max-height .5s cubic-bezier(.16,1,.3,1); }
+  .contact-parents-body.open { max-height:300px; }
+  .contact-parents-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding-top:8px; }
 
   /* ══════════════════════════════
      FOOTER
@@ -696,7 +718,7 @@
     <div class="eyebrow reveal">Invitation</div>
     <div class="inv-card reveal d1">
       <p class="inv-text">
-        <strong>영연과 동진</strong> 결혼합니다.<br><br>
+        <strong>영연</strong>과 <strong>동진</strong> 결혼합니다.<br><br>
         여러분의 따뜻한 손길과 마음이<br>우리의 길이 되어 주었습니다.<br><br>
         이제 두 사람은 그 마음을 가슴에 품고<br>나란히, 같은 길 위에 서려 합니다.<br><br>
         인생이라는 긴 여행의 모든 순간을<br>함께하겠습니다.
@@ -821,6 +843,10 @@
             <div class="bank-name">국민은행 · 임경수 (부)</div>
             <div class="bank-num-row"><span class="bank-num">123-4567-8901-23</span><button class="copy-num-btn" onclick="copyTxt('123-4567-8901-23')">복사</button></div>
           </div>
+          <div class="bank-row">
+            <div class="bank-name">신한은행 · 고승희 (모)</div>
+            <div class="bank-num-row"><span class="bank-num">110-987-654321</span><button class="copy-num-btn" onclick="copyTxt('110-987-654321')">복사</button></div>
+          </div>
           <div class="pay-row">
             <button class="pay-btn btn-toss" onclick="toast('토스앱으로 연결합니다')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M11.87 2C8.47 2 6 4.72 6 8.12v.52c0 .4.1.78.28 1.12L11.08 18c.4.78 1.2 1.26 2.06 1.26h.08c1.3 0 2.32-1.08 2.22-2.38l-.3-3.14h2.1c1.52 0 2.76-1.24 2.76-2.76V8.12C20 4.72 17.27 2 13.87 2h-2z" fill="white"/></svg>토스송금</button>
             <button class="pay-btn btn-kakao" onclick="toast('카카오페이로 연결합니다')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 3C7.03 3 3 6.36 3 10.5c0 2.67 1.67 5.02 4.18 6.4l-1.06 3.93c-.09.34.28.62.58.43L11.1 18.9c.29.04.59.06.9.06 4.97 0 9-3.36 9-7.5S16.97 3 12 3z" fill="#3A1D1D"/></svg>카카오페이</button>
@@ -843,6 +869,10 @@
             <div class="bank-name">우리은행 · 박성균 (부)</div>
             <div class="bank-num-row"><span class="bank-num">1002-987-654321</span><button class="copy-num-btn" onclick="copyTxt('1002-987-654321')">복사</button></div>
           </div>
+          <div class="bank-row">
+            <div class="bank-name">우리은행 · 정현용 (모)</div>
+            <div class="bank-num-row"><span class="bank-num">1002-111-222333</span><button class="copy-num-btn" onclick="copyTxt('1002-111-222333')">복사</button></div>
+          </div>
           <div class="pay-row">
             <button class="pay-btn btn-toss" onclick="toast('토스앱으로 연결합니다')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M11.87 2C8.47 2 6 4.72 6 8.12v.52c0 .4.1.78.28 1.12L11.08 18c.4.78 1.2 1.26 2.06 1.26h.08c1.3 0 2.32-1.08 2.22-2.38l-.3-3.14h2.1c1.52 0 2.76-1.24 2.76-2.76V8.12C20 4.72 17.27 2 13.87 2h-2z" fill="white"/></svg>토스송금</button>
             <button class="pay-btn btn-kakao" onclick="toast('카카오페이로 연결합니다')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 3C7.03 3 3 6.36 3 10.5c0 2.67 1.67 5.02 4.18 6.4l-1.06 3.93c-.09.34.28.62.58.43L11.1 18.9c.29.04.59.06.9.06 4.97 0 9-3.36 9-7.5S16.97 3 12 3z" fill="#3A1D1D"/></svg>카카오페이</button>
@@ -854,11 +884,75 @@
     <!-- 연락처 -->
     <div class="contact-sec reveal d4">
       <div class="contact-label">Contact</div>
+      <!-- 신랑 신부 -->
       <div class="contact-grid">
-        <a href="tel:010-1234-5678" class="contact-card"><div class="cc-role">Groom</div><div class="cc-name">임 동 진</div><div class="cc-phone">010-1234-5678</div></a>
-        <a href="tel:010-8765-4321" class="contact-card"><div class="cc-role">Bride</div><div class="cc-name">박 영 연</div><div class="cc-phone">010-8765-4321</div></a>
-        <a href="tel:010-1111-2222" class="contact-card"><div class="cc-role">Groom's Father</div><div class="cc-name">임 경 수</div><div class="cc-phone">010-1111-2222</div></a>
-        <a href="tel:010-3333-4444" class="contact-card"><div class="cc-role">Bride's Father</div><div class="cc-name">박 성 균</div><div class="cc-phone">010-3333-4444</div></a>
+        <a href="tel:010-1234-5678" class="contact-card">
+          <div class="cc-role">Groom</div>
+          <div class="cc-name">임 동 진</div>
+          <div class="cc-call-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" fill="var(--gold-dark)"/>
+            </svg>
+          </div>
+        </a>
+        <a href="tel:010-8765-4321" class="contact-card">
+          <div class="cc-role">Bride</div>
+          <div class="cc-name">박 영 연</div>
+          <div class="cc-call-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" fill="var(--gold-dark)"/>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <!-- Contact Parents 아코디언 -->
+      <div class="contact-parents-wrap">
+        <button class="contact-parents-btn" id="contactParentsBtn" onclick="toggleContactParents()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="var(--mid-brown)"/></svg>
+          혼주 연락처
+          <span class="cpb-chevron">∨</span>
+        </button>
+        <div class="contact-parents-body" id="contactParentsBody">
+          <div class="contact-parents-grid">
+            <a href="tel:010-1111-2222" class="contact-card">
+              <div class="cc-role">Groom's Father</div>
+              <div class="cc-name">임 경 수</div>
+              <div class="cc-call-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" fill="var(--gold-dark)"/>
+                </svg>
+              </div>
+            </a>
+            <a href="tel:010-2222-3333" class="contact-card">
+              <div class="cc-role">Groom's Mother</div>
+              <div class="cc-name">고 승 희</div>
+              <div class="cc-call-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" fill="var(--gold-dark)"/>
+                </svg>
+              </div>
+            </a>
+            <a href="tel:010-3333-4444" class="contact-card">
+              <div class="cc-role">Bride's Father</div>
+              <div class="cc-name">박 성 균</div>
+              <div class="cc-call-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" fill="var(--gold-dark)"/>
+                </svg>
+              </div>
+            </a>
+            <a href="tel:010-4444-5555" class="contact-card">
+              <div class="cc-role">Bride's Mother</div>
+              <div class="cc-name">정 현 용</div>
+              <div class="cc-call-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" fill="var(--gold-dark)"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -972,6 +1066,13 @@ function openMap(type, e) {
 
 /* ══ ACCORDION ══ */
 function toggleAcc(side) { document.getElementById('acc-' + side).classList.toggle('open'); }
+
+function toggleContactParents() {
+  const btn  = document.getElementById('contactParentsBtn');
+  const body = document.getElementById('contactParentsBody');
+  btn.classList.toggle('open');
+  body.classList.toggle('open');
+}
 
 /* ══ GALLERY ══ */
 const emojis = ['📸','🌸','🌿','✨','🌙','💫','🌺','🍀','🌷','🎀','💐','🌼','🎶','🌊','🦋'];
