@@ -518,33 +518,22 @@
   #gallery { background:var(--warm-white); padding-bottom:56px; }
 
   .bento { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:28px; }
-  .bento-item { border-radius:16px; overflow:hidden; cursor:pointer; position:relative; aspect-ratio:1; transition:transform .3s cubic-bezier(.34,1.56,.64,1); }
+  .bento-item { border-radius:16px; overflow:hidden; cursor:pointer; position:relative; aspect-ratio:1; }
   .bento-item:first-child { grid-column:1/3; grid-row:1/3; border-radius:20px; aspect-ratio:auto; }
-  .bento-item:hover .bento-overlay { opacity:1; }
-  .bento-item:active { transform:scale(.96); }
+  .bento-item:active { opacity:.85; }
 
-  .bento-inner { width:100%; height:100%; min-height:120px; display:flex; align-items:center; justify-content:center; font-size:1.8rem; position:relative; }
-  .bento-item:first-child .bento-inner { font-size:3rem; }
+  .bento-inner { width:100%; height:100%; min-height:120px; position:relative; }
 
-  /* 갤러리 실제 이미지 */
-  .bento-item:nth-child(1)  .bento-inner { background:url('./images/gallery_01.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(2)  .bento-inner { background:url('./images/gallery_02.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(3)  .bento-inner { background:url('./images/gallery_03.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(4)  .bento-inner { background:url('./images/gallery_04.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(5)  .bento-inner { background:url('./images/gallery_05.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(6)  .bento-inner { background:url('./images/gallery_06.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(7)  .bento-inner { background:url('./images/gallery_07.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(8)  .bento-inner { background:url('./images/gallery_08.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(9)  .bento-inner { background:url('./images/gallery_09.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(10) .bento-inner { background:url('./images/gallery_10.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(11) .bento-inner { background:url('./images/gallery_11.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(12) .bento-inner { background:url('./images/gallery_12.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(13) .bento-inner { background:url('./images/gallery_13.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(14) .bento-inner { background:url('./images/gallery_14.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(15) .bento-inner { background:url('./images/gallery_15.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(16) .bento-inner { background:url('./images/gallery_16.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(17) .bento-inner { background:url('./images/gallery_17.jpg') center/cover no-repeat; }
-  .bento-item:nth-child(18) .bento-inner { background:url('./images/gallery_18.jpg') center/cover no-repeat; }
+  /* 갤러리 실제 이미지 — lazy loading 대비 img 태그로 교체 */
+  .bento-inner img { width:100%; height:100%; object-fit:cover; display:block; }
+
+  .gallery-hidden { display:none; }
+  .gallery-hidden.show { display:block; }
+
+  .more-btn { display:flex; align-items:center; justify-content:center; gap:8px; margin:20px auto 0; padding:14px 32px; background:transparent; border:1px solid var(--beige-mid); border-radius:var(--radius-pill); font-size:.76rem; color:var(--mid-brown); cursor:pointer; font-family:inherit; letter-spacing:.06em; }
+  .more-btn:active { opacity:.7; }
+
+  /* 갤러리 이미지는 JS에서 img 태그로 생성 (lazy loading 적용) */
 
   .bento-overlay { position:absolute; inset:0; background:rgba(26,21,16,.28); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .3s ease; }
   .bento-overlay-icon { color:#fff; font-size:1.6rem; }
@@ -559,26 +548,17 @@
   .more-btn:active { transform:scale(.94); }
 
   /* Lightbox */
-  #lightbox { position:fixed; inset:0; z-index:500; background:rgba(10,7,4,.96); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:opacity .4s ease,visibility .4s ease; padding:24px; touch-action:pan-y; }
+  #lightbox { position:fixed; inset:0; z-index:500; background:rgba(10,7,4,.97); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:opacity .25s ease,visibility .25s ease; padding:12px; }
   #lightbox.on { opacity:1; visibility:visible; }
-  .lb-content { width:100%; max-width:380px; max-height:80vh; border-radius:var(--radius-xl); overflow:hidden; background:var(--beige); display:flex; align-items:center; justify-content:center; aspect-ratio:1; transform:scale(.85); transition:transform .5s cubic-bezier(.34,1.56,.64,1); }
-  #lightbox.on .lb-content { transform:scale(1); }
-  .lb-ph { display:flex; flex-direction:column; align-items:center; gap:10px; color:var(--beige-mid); font-size:3.5rem; }
-  .lb-ph span { font-size:.72rem; color:var(--light-brown); letter-spacing:.12em; }
-  .lb-close { position:absolute; top:24px; right:24px; width:42px; height:42px; border-radius:50%; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); color:#fff; font-size:1.1rem; display:flex; align-items:center; justify-content:center; cursor:pointer; backdrop-filter:blur(8px); transition:all .2s ease; }
-  .lb-close:hover  { background:rgba(255,255,255,.14); }
-  .lb-close:active { transform:scale(.9); }
-  .lb-nav { position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); color:#fff; font-size:1.1rem; display:flex; align-items:center; justify-content:center; cursor:pointer; backdrop-filter:blur(8px); transition:all .25s cubic-bezier(.34,1.56,.64,1); user-select:none; }
-  .lb-nav:hover  { background:rgba(255,255,255,.18); transform:translateY(-50%) scale(1.08); }
-  .lb-nav:active { transform:translateY(-50%) scale(.92); }
-  .lb-prev { left:16px; }
-  .lb-next { right:16px; }
-  .lb-nav.disabled { opacity:.2; pointer-events:none; }
-  .lb-count { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); font-size:.62rem; letter-spacing:.18em; color:rgba(255,255,255,.4); }
-  .lb-slide-hint { position:absolute; bottom:52px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:6px; pointer-events:none; }
-  .lb-slide-line { width:28px; height:1px; background:linear-gradient(to right, transparent, rgba(201,169,110,.7), transparent); animation:slidePulse 1.8s ease-in-out infinite; }
-  @keyframes slidePulse { 0%,100%{ transform:scaleX(.6); opacity:.4; } 50%{ transform:scaleX(1); opacity:1; } }
-  .lb-slide-txt { font-size:.48rem; letter-spacing:.28em; color:rgba(201,169,110,.55); text-transform:uppercase; }
+  .lb-content { width:100%; max-width:calc(100vw - 24px); max-height:90vh; border-radius:12px; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  .lb-close { position:absolute; top:16px; right:16px; width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,.1); color:#fff; font-size:1.1rem; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  .lb-close:active { opacity:.7; }
+  .lb-nav { position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.1); color:#fff; font-size:1.3rem; display:flex; align-items:center; justify-content:center; cursor:pointer; user-select:none; }
+  .lb-nav:active { opacity:.7; }
+  .lb-prev { left:8px; }
+  .lb-next { right:8px; }
+  .lb-nav.disabled { opacity:.15; pointer-events:none; }
+  .lb-count { position:absolute; bottom:16px; left:50%; transform:translateX(-50%); font-size:.62rem; letter-spacing:.18em; color:rgba(255,255,255,.4); }
 
   /* ══════════════════════════════
      ACCOUNTS & GIFT
@@ -748,7 +728,7 @@
     .hero-cursive-line2 { font-size:6rem; }
   }
 </style>
-<script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=9sc717mqtg"></script>
+<script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=9sc717mqtg&submodules=geocoder"></script>
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -771,10 +751,6 @@
     <img id="lb-img" src="" alt="gallery photo" style="width:100%;height:100%;object-fit:contain;display:block;">
   </div>
   <div class="lb-nav lb-next" id="lbNext" onclick="lbMove(1)">›</div>
-  <div class="lb-slide-hint" id="lbSlideHint">
-    <div class="lb-slide-line"></div>
-    <div class="lb-slide-txt">Slide</div>
-  </div>
   <div class="lb-count" id="lb-count"></div>
 </div>
 
@@ -1247,32 +1223,44 @@ function shareKakao() {
 })();
 window.addEventListener('load', function() {
   if (typeof naver === 'undefined') return;
-  var coords = new naver.maps.LatLng(37.54399, 126.95188);
-  var map = new naver.maps.Map('naver-map', {
-    center: coords,
-    zoom: 17,
-    mapTypeControl: false,
-    zoomControl: false,
-    scaleControl: false,
-    logoControl: false,
-    mapDataControl: false,
-  });
-  var marker = new naver.maps.Marker({
-    position: coords,
-    map: map,
-    title: '이룸웨딩컨벤션'
-  });
-  var infoWindow = new naver.maps.InfoWindow({
-    content: '<div style="padding:8px 12px;font-size:0.75rem;font-family:sans-serif;color:#2C2826;white-space:nowrap;">📍 이룸웨딩컨벤션 5F</div>',
-    borderWidth: 0,
-    backgroundColor: '#FAF7F2',
-    borderRadius: '10px',
-    boxShadow: '0 4px 16px rgba(0,0,0,0.12)'
-  });
-  infoWindow.open(map, marker);
-  naver.maps.Event.addListener(marker, 'click', function() {
-    if (infoWindow.getMap()) infoWindow.close();
-    else infoWindow.open(map, marker);
+
+  // 주소로 좌표 검색 후 지도 생성
+  naver.maps.Service.geocode({ query: '서울 마포구 마포대로 78' }, function(status, response) {
+    var coords;
+    if (status === naver.maps.Service.Status.OK && response.v2.addresses.length > 0) {
+      var result = response.v2.addresses[0];
+      coords = new naver.maps.LatLng(result.y, result.x);
+    } else {
+      // geocoding 실패 시 fallback 좌표
+      coords = new naver.maps.LatLng(37.5433, 126.9519);
+    }
+
+    var map = new naver.maps.Map('naver-map', {
+      center: coords,
+      zoom: 17,
+      mapTypeControl: false,
+      zoomControl: false,
+      scaleControl: false,
+      logoControl: false,
+      mapDataControl: false,
+    });
+    var marker = new naver.maps.Marker({
+      position: coords,
+      map: map,
+      title: '이룸웨딩컨벤션'
+    });
+    var infoWindow = new naver.maps.InfoWindow({
+      content: '<div style="padding:8px 12px;font-size:0.75rem;font-family:sans-serif;color:#2C2826;white-space:nowrap;">📍 이룸웨딩컨벤션 5F</div>',
+      borderWidth: 0,
+      backgroundColor: '#FAF7F2',
+      borderRadius: '10px',
+      boxShadow: '0 4px 16px rgba(0,0,0,0.12)'
+    });
+    infoWindow.open(map, marker);
+    naver.maps.Event.addListener(marker, 'click', function() {
+      if (infoWindow.getMap()) infoWindow.close();
+      else infoWindow.open(map, marker);
+    });
   });
 });
 /* ══ LOADING ══ */
@@ -1401,23 +1389,36 @@ let moreOpen = false;
   const grid = document.getElementById('bentoGrid');
   for (let i = 0; i < 18; i++) {
     const isHidden = i >= 9;
+    const num = String(i + 1).padStart(2, '0');
     const item = document.createElement('div');
     item.className = 'bento-item' + (isHidden ? ' gallery-hidden' : '');
     item.onclick = () => openLb(i + 1);
     const inner = document.createElement('div');
     inner.className = 'bento-inner';
-    const ov = document.createElement('div');
-    ov.className = 'bento-overlay';
-    ov.innerHTML = '<span class="bento-overlay-icon">🔍</span>';
-    item.appendChild(inner); item.appendChild(ov); grid.appendChild(item);
+    // lazy loading으로 뷰포트 진입 시에만 로드
+    const img = document.createElement('img');
+    img.src = isHidden ? '' : `./images/gallery_${num}.jpg`;
+    img.dataset.src = `./images/gallery_${num}.jpg`;
+    img.loading = 'lazy';
+    img.alt = `gallery ${i + 1}`;
+    img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+    inner.appendChild(img);
+    item.appendChild(inner);
+    grid.appendChild(item);
   }
 })();
 
 function toggleMore() {
   moreOpen = !moreOpen;
-  document.querySelectorAll('.gallery-hidden').forEach((el, i) => {
-    if (moreOpen) setTimeout(() => el.classList.add('show'), i * 55);
-    else el.classList.remove('show');
+  document.querySelectorAll('.gallery-hidden').forEach(el => {
+    if (moreOpen) {
+      el.classList.add('show');
+      // 숨겨진 이미지 src 지연 로드
+      const img = el.querySelector('img');
+      if (img && !img.src.includes('gallery_')) img.src = img.dataset.src;
+    } else {
+      el.classList.remove('show');
+    }
   });
   document.getElementById('moreIcon').textContent = moreOpen ? '－' : '＋';
   document.getElementById('moreTxt').textContent  = moreOpen ? '접기' : '더보기';
@@ -1445,16 +1446,7 @@ function openLb(n) {
 function lbMove(dir) {
   const next = lbCurrent + dir;
   if (next < 1 || next > lbTotal) return;
-  const content = document.querySelector('.lb-content');
-  content.style.transition = 'none';
-  content.style.transform  = `scale(.85) translateX(${dir * -30}px)`;
-  content.style.opacity    = '0';
-  setTimeout(() => {
-    lbRender(next);
-    content.style.transition = 'transform .4s cubic-bezier(.34,1.56,.64,1), opacity .3s ease';
-    content.style.transform  = 'scale(1) translateX(0)';
-    content.style.opacity    = '1';
-  }, 150);
+  lbRender(next);
 }
 
 function closeLb() {
