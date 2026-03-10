@@ -904,17 +904,17 @@
     </div>
     <div class="reveal d3">
       <div class="tabs">
-        <button class="tab on" onclick="switchTab(this,'parking')">🚗 주차 안내</button>
-        <button class="tab" onclick="switchTab(this,'food')">🍽️ 식사 안내</button>
+        <button type="button" class="tab on" onclick="switchTab(this,'parking')">🚗 주차 안내</button>
+        <button type="button" class="tab" onclick="switchTab(this,'food')">🍽️ 식사 안내</button>
       </div>
       <div class="tab-panel on" id="tab-parking">
         <div class="info-box">
           🚗 <strong>자가용 이용 시</strong><br>
           <span style="padding-left:1.2em"><svg width="8" height="8" viewBox="0 0 8 8" style="display:inline-block;vertical-align:middle;margin-right:5px;margin-bottom:1px"><circle cx="4" cy="4" r="2.5" fill="var(--gold-dark)" opacity="0.7"/></svg>건물 내 지하주차장 (B2~B7)</span>
-          <button class="addr-copy-btn" onclick="copyAddr('/* TODO: 건물 내 주차장 주소 입력 */')">📋 주소 복사</button><br>
+          <button type="button" class="addr-copy-btn" onclick="copyAddr('/* TODO: 건물 내 주차장 주소 입력 */')">📋 주소 복사</button><br>
           <!-- TODO: 위 copyAddr 안의 주소를 실제 주소로 교체하세요 -->
           <span style="padding-left:1.2em"><svg width="8" height="8" viewBox="0 0 8 8" style="display:inline-block;vertical-align:middle;margin-right:5px;margin-bottom:1px"><circle cx="4" cy="4" r="2.5" fill="var(--gold-dark)" opacity="0.7"/></svg>외부 공영주차장 (도보 8분)</span>
-          <button class="addr-copy-btn" onclick="copyAddr('/* TODO: 공영주차장 주소 입력 */')">📋 주소 복사</button><br>
+          <button type="button" class="addr-copy-btn" onclick="copyAddr('/* TODO: 공영주차장 주소 입력 */')">📋 주소 복사</button><br>
           <!-- TODO: 위 copyAddr 안의 주소를 실제 주소로 교체하세요 -->
           <div class="info-warn" style="margin-top:8px;">
             🅿️ 2시간 무료 주차 (이후 10분당 1,000원)
@@ -955,7 +955,7 @@
     <h2 class="sec-title reveal d1">함께한 시간들</h2>
     <div class="bento reveal d2" id="bentoGrid"></div>
     <div style="text-align:center;">
-      <button class="more-btn" onclick="toggleMore()">
+      <button type="button" class="more-btn" onclick="toggleMore()">
         <span id="moreIcon">＋</span><span id="moreTxt">더보기</span>
       </button>
     </div>
@@ -976,19 +976,19 @@
         <div class="acc-body">
           <div class="bank-row">
             <div class="bank-name">국민은행 · 임동진</div>
-            <div class="bank-num-row"><span class="bank-num">772002-04-255026</span><button class="copy-num-btn" onclick="copyTxt('77200204255026')">복사</button></div>
+            <div class="bank-num-row"><span class="bank-num">772002-04-255026</span><button type="button" class="copy-num-btn" onclick="copyTxt('77200204255026')">복사</button></div>
           </div>
           <div class="bank-row">
             <div class="bank-name">우리은행 · 임경수 (부)</div>
-            <div class="bank-num-row"><span class="bank-num">1002-733-680397</span><button class="copy-num-btn" onclick="copyTxt('1002733680397')">복사</button></div>
+            <div class="bank-num-row"><span class="bank-num">1002-733-680397</span><button type="button" class="copy-num-btn" onclick="copyTxt('1002733680397')">복사</button></div>
           </div>
           <div class="bank-row">
             <div class="bank-name">국민은행 · 고승희 (모)</div>
-            <div class="bank-num-row"><span class="bank-num">772-21-0091-724</span><button class="copy-num-btn" onclick="copyTxt('772210091724')">복사</button></div>
+            <div class="bank-num-row"><span class="bank-num">772-21-0091-724</span><button type="button" class="copy-num-btn" onclick="copyTxt('772210091724')">복사</button></div>
           </div>
           <div class="pay-row">
-            <button class="pay-btn btn-toss" onclick="toast('토스앱으로 연결합니다')"><svg width="16" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;display:block"><rect width="32" height="32" rx="8" fill="rgba(255,255,255,0.2)"/><path d="M9 10h14v3h-5.5v9h-3V13H9v-3z" fill="white"/></svg>토스페이</button>
-            <button class="pay-btn btn-kakao" onclick="toast('카카오페이로 연결합니다')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 3C7.03 3 3 6.36 3 10.5c0 2.67 1.67 5.02 4.18 6.4l-1.06 3.93c-.09.34.28.62.58.43L11.1 18.9c.29.04.59.06.9.06 4.97 0 9-3.36 9-7.5S16.97 3 12 3z" fill="#3A1D1D"/></svg>카카오페이</button>
+            <button type="button" class="pay-btn btn-toss" onclick="toast('토스앱으로 연결합니다')"><svg width="16" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;display:block"><rect width="32" height="32" rx="8" fill="rgba(255,255,255,0.2)"/><path d="M9 10h14v3h-5.5v9h-3V13H9v-3z" fill="white"/></svg>토스페이</button>
+            <button type="button" class="pay-btn btn-kakao" onclick="toast('카카오페이로 연결합니다')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 3C7.03 3 3 6.36 3 10.5c0 2.67 1.67 5.02 4.18 6.4l-1.06 3.93c-.09.34.28.62.58.43L11.1 18.9c.29.04.59.06.9.06 4.97 0 9-3.36 9-7.5S16.97 3 12 3z" fill="#3A1D1D"/></svg>카카오페이</button>
           </div>
         </div>
       </div>
@@ -1002,22 +1002,22 @@
         <div class="acc-body">
           <div class="bank-row">
             <div class="bank-name">우리은행 · 박영연</div>
-            <div class="bank-num-row"><span class="bank-num">1002-162-137989</span><button class="copy-num-btn" onclick="copyTxt('1002162137989')">복사</button></div>
+            <div class="bank-num-row"><span class="bank-num">1002-162-137989</span><button type="button" class="copy-num-btn" onclick="copyTxt('1002162137989')">복사</button></div>
           </div>
           <div class="bank-row">
             <div class="bank-name">우리은행 · 박성균 (부)</div>
-            <div class="bank-num-row"><span class="bank-num">1002-849-555777</span><button class="copy-num-btn" onclick="copyTxt('1002849555777')">복사</button></div>
+            <div class="bank-num-row"><span class="bank-num">1002-849-555777</span><button type="button" class="copy-num-btn" onclick="copyTxt('1002849555777')">복사</button></div>
           </div>
           <div class="bank-row">
             <div class="bank-name">하나은행 · 정현용 (모)</div>
             <div class="bank-num-row">
               <span class="bank-num">010-741800-67207</span>
-              <button class="copy-num-btn" onclick="copyTxt('01074180067207')">복사</button>
+              <button type="button" class="copy-num-btn" onclick="copyTxt('01074180067207')">복사</button>
             </div>
           </div>
           <div class="pay-row">
-            <button class="pay-btn btn-toss" onclick="toast('토스앱으로 연결합니다')"><svg width="16" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;display:block"><rect width="32" height="32" rx="8" fill="rgba(255,255,255,0.2)"/><path d="M9 10h14v3h-5.5v9h-3V13H9v-3z" fill="white"/></svg>토스페이</button>
-            <button class="pay-btn btn-kakao" onclick="toast('카카오페이로 연결합니다')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 3C7.03 3 3 6.36 3 10.5c0 2.67 1.67 5.02 4.18 6.4l-1.06 3.93c-.09.34.28.62.58.43L11.1 18.9c.29.04.59.06.9.06 4.97 0 9-3.36 9-7.5S16.97 3 12 3z" fill="#3A1D1D"/></svg>카카오페이</button>
+            <button type="button" class="pay-btn btn-toss" onclick="toast('토스앱으로 연결합니다')"><svg width="16" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;display:block"><rect width="32" height="32" rx="8" fill="rgba(255,255,255,0.2)"/><path d="M9 10h14v3h-5.5v9h-3V13H9v-3z" fill="white"/></svg>토스페이</button>
+            <button type="button" class="pay-btn btn-kakao" onclick="toast('카카오페이로 연결합니다')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 3C7.03 3 3 6.36 3 10.5c0 2.67 1.67 5.02 4.18 6.4l-1.06 3.93c-.09.34.28.62.58.43L11.1 18.9c.29.04.59.06.9.06 4.97 0 9-3.36 9-7.5S16.97 3 12 3z" fill="#3A1D1D"/></svg>카카오페이</button>
           </div>
         </div>
       </div>
@@ -1050,7 +1050,7 @@
 
       <!-- Contact Parents 아코디언 -->
       <div class="contact-parents-wrap">
-        <button class="contact-parents-btn" id="contactParentsBtn" onclick="toggleContactParents()">
+        <button type="button" class="contact-parents-btn" id="contactParentsBtn" onclick="toggleContactParents()">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="var(--mid-brown)"/></svg>
           혼주 연락처
           <span class="cpb-chevron">∨</span>
@@ -1127,7 +1127,7 @@
         <p class="footer-msg reveal d1">좋은 날, 좋은 사람들과<br>함께할 수 있어<br>더없이 행복합니다.<br><br>귀한 발걸음과 따뜻한 마음,<br>평생 간직하겠습니다.<br>감사합니다.</p>
         <div class="footer-rule reveal d2"></div>
         <div class="footer-kakao-wrap reveal d3">
-          <button class="footer-kakao-btn" onclick="shareKakao()">
+          <button type="button" class="footer-kakao-btn" onclick="shareKakao()">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3C7.03 3 3 6.36 3 10.5c0 2.67 1.67 5.02 4.18 6.4l-1.06 3.93c-.09.34.28.62.58.43L11.1 18.9c.29.04.59.06.9.06 4.97 0 9-3.36 9-7.5S16.97 3 12 3z" fill="rgba(232,213,176,.8)"/></svg>
             카카오톡으로 공유하기
           </button>
@@ -1247,7 +1247,7 @@ window.addEventListener('load', function() {
     });
 });
 /* ══ LOADING ══ */
-// DOMContentLoaded 시점에 바로 숨김 (window.load 기다리지 않음)
+// Hero 배경 이미지가 완전히 로드된 후 로딩 스크린 숨김
 function hideLoading() {
   document.getElementById('loading-screen').classList.add('hidden');
   setTimeout(() => document.getElementById('heroNames').classList.add('anim'), 60);
@@ -1255,11 +1255,22 @@ function hideLoading() {
   setTimeout(() => document.getElementById('heroRule').classList.add('anim'), 700);
   setTimeout(() => document.getElementById('heroDatePill').classList.add('anim'), 900);
 }
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => setTimeout(hideLoading, 300));
-} else {
-  setTimeout(hideLoading, 300);
-}
+
+(function waitForHero() {
+  const heroImg = new Image();
+  heroImg.src = './images/ogtag_images.jpg';
+
+  if (heroImg.complete) {
+    // 이미 캐시에 있으면 즉시 (최소 300ms 연출용 딜레이)
+    setTimeout(hideLoading, 300);
+  } else {
+    // 이미지 로드 완료 시점에 숨김
+    heroImg.onload  = () => setTimeout(hideLoading, 100);
+    // 이미지 실패해도 최대 3초 후 강제 숨김
+    heroImg.onerror = () => setTimeout(hideLoading, 100);
+    setTimeout(hideLoading, 3000);
+  }
+})();
 
 /* ══ PARTICLES ══ */
 (function() {
@@ -1379,7 +1390,7 @@ function preloadAll() {
   for (let i = 1; i <= lbTotal; i++) {
     const num = String(i).padStart(2, '0');
     const im  = new Image();
-    im.src = `./images/gallery_${num}.jpg`;
+    im.src = `./images/gallery_${num}.webp`;
     imgCache[i] = im;
   }
 }
@@ -1395,7 +1406,7 @@ if ('requestIdleCallback' in window) {
   const grid = document.getElementById('bentoGrid');
   for (let i = 0; i < lbTotal; i++) {
     const num = String(i + 1).padStart(2, '0');
-    const src = `./images/gallery_${num}.jpg`;
+    const src = `./images/gallery_${num}.webp`;
 
     const item = document.createElement('div');
     item.className = 'bento-item' + (i >= 9 ? ' gallery-hidden' : '');
@@ -1438,7 +1449,7 @@ function lbRender(n) {
   // 캐시에서 즉시 꺼내기 — 이미 complete이면 깜빡임 없음
   const cached = imgCache[n];
   lbImg.src = (cached && cached.complete) ? cached.src
-              : `./images/gallery_${String(n).padStart(2,'0')}.jpg`;
+              : `./images/gallery_${String(n).padStart(2,'0')}.webp`;
   document.getElementById('lb-count').textContent = `${n} / ${lbTotal}`;
   document.getElementById('lbPrev').classList.toggle('disabled', n <= 1);
   document.getElementById('lbNext').classList.toggle('disabled', n >= lbTotal);
