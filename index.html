@@ -976,9 +976,9 @@
     <div class="eyebrow reveal">Our Moment</div>
     <h2 class="sec-title reveal d1">함께한 시간들</h2>
     <div class="bento" id="bentoGrid">
-      <div class="bento-item" onclick="openLb(1)"><div class="bento-inner"><img src="./images/gallery_01.webp" alt="" loading="eager"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item" onclick="openLb(2)"><div class="bento-inner"><img src="./images/gallery_02.webp" alt="" loading="eager"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item" onclick="openLb(3)"><div class="bento-inner"><img src="./images/gallery_03.webp" alt="" loading="eager"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item" onclick="openLb(1)"><div class="bento-inner"><img src="./images/gallery_01.webp" alt="" loading="eager" decoding="async"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item" onclick="openLb(2)"><div class="bento-inner"><img src="./images/gallery_02.webp" alt="" loading="eager" decoding="async"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item" onclick="openLb(3)"><div class="bento-inner"><img src="./images/gallery_03.webp" alt="" loading="eager" decoding="async"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
       <div class="bento-item" onclick="openLb(4)"><div class="bento-inner"><img src="./images/gallery_04.webp" alt="" loading="eager" decoding="async"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
       <div class="bento-item" onclick="openLb(5)"><div class="bento-inner"><img src="./images/gallery_05.webp" alt="" loading="eager" decoding="async"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
       <div class="bento-item" onclick="openLb(6)"><div class="bento-inner"><img src="./images/gallery_06.webp" alt="" loading="eager" decoding="async"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
@@ -1305,7 +1305,7 @@ function hideLoading() {
 /* ── Particles ── */
 (function() {
   const c = document.getElementById('heroParticles');
-  for (let i = 0; i < 22; i++) {
+  for (let i = 0; i < 14; i++) {
     const p = document.createElement('div');
     p.className = 'particle';
     const sz = Math.random() > .65 ? 3 : 2;
@@ -1335,7 +1335,7 @@ function hideLoading() {
 (function() {
   const c = document.getElementById('footerParticles');
   if (!c) return;
-  for (let i = 0; i < 18; i++) {
+  for (let i = 0; i < 10; i++) {
     const p = document.createElement('div');
     p.className = 'particle';
     const sz = Math.random() > .65 ? 3 : 2;
@@ -1347,6 +1347,18 @@ function hideLoading() {
       `--dx:${(Math.random()-.5)*60}px`
     ].join(';');
     c.appendChild(p);
+  }
+  // pause when footer is out of view
+  const footer = document.getElementById('footer');
+  if (footer) {
+    const footerOb = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        c.querySelectorAll('.particle').forEach(p => {
+          p.style.animationPlayState = en.isIntersecting ? '' : 'paused';
+        });
+      });
+    }, { threshold: 0 });
+    footerOb.observe(footer);
   }
 })();
 const hdr = document.getElementById('sticky-header');
