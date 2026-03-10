@@ -7,10 +7,10 @@
 <meta property="og:type"        content="website">
 <meta property="og:title"       content="영연 ♡ 동진 — 결혼합니다">
 <meta property="og:description" content="2026년 6월 27일 토요일 11:30 ｜공덕 이룸웨딩컨벤션">
-<meta property="og:image"       content="https://yoyonie.github.io/wedding-card/images/og_image.jpg">
+<meta property="og:image"       content="https://yoyonie.github.io/dyp_wedding_card/images/og_image.jpg">
 <meta property="og:image:width"  content="800">
 <meta property="og:image:height" content="400">
-<meta property="og:url"         content="https://yoyonie.github.io/wedding-card/">
+<meta property="og:url"         content="https://yoyonie.github.io/dyp_wedding_card/">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>영연 ♡ 동진 — 결혼합니다</title>
 
@@ -194,6 +194,7 @@
   .particle {
     position:absolute; background:var(--gold-light); border-radius:50%; opacity:0;
     animation: floatUp linear infinite;
+    will-change: transform, opacity;
   }
   @keyframes floatUp {
     0%   { transform:translateY(100vh) translateX(0); opacity:0; }
@@ -509,12 +510,15 @@
   .bento-item { border-radius:12px; overflow:hidden; cursor:pointer; position:relative; aspect-ratio:1; background:var(--beige); }
   .bento-item:active { opacity:.8; }
 
-  /* background-image 방식 — 브라우저 파싱 즉시 병렬 로드 */
+  /* img lazy-load approach */
   .bento-inner {
     width:100%; height:100%;
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    position:relative;
+  }
+  .bento-inner img {
+    width:100%; height:100%;
+    object-fit:cover; object-position:center;
+    display:block;
   }
 
   .gallery-hidden { display:none; }
@@ -970,24 +974,24 @@
     <div class="eyebrow reveal">Our Moment</div>
     <h2 class="sec-title reveal d1">함께한 시간들</h2>
     <div class="bento reveal d2" id="bentoGrid">
-      <div class="bento-item" onclick="openLb(1)"><div class="bento-inner" style="background-image:url('./images/gallery_01.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item" onclick="openLb(2)"><div class="bento-inner" style="background-image:url('./images/gallery_02.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item" onclick="openLb(3)"><div class="bento-inner" style="background-image:url('./images/gallery_03.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item" onclick="openLb(4)"><div class="bento-inner" style="background-image:url('./images/gallery_04.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item" onclick="openLb(5)"><div class="bento-inner" style="background-image:url('./images/gallery_05.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item" onclick="openLb(6)"><div class="bento-inner" style="background-image:url('./images/gallery_06.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item" onclick="openLb(7)"><div class="bento-inner" style="background-image:url('./images/gallery_07.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item" onclick="openLb(8)"><div class="bento-inner" style="background-image:url('./images/gallery_08.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item" onclick="openLb(9)"><div class="bento-inner" style="background-image:url('./images/gallery_09.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item gallery-hidden" onclick="openLb(10)"><div class="bento-inner" style="background-image:url('./images/gallery_10.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item gallery-hidden" onclick="openLb(11)"><div class="bento-inner" style="background-image:url('./images/gallery_11.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item gallery-hidden" onclick="openLb(12)"><div class="bento-inner" style="background-image:url('./images/gallery_12.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item gallery-hidden" onclick="openLb(13)"><div class="bento-inner" style="background-image:url('./images/gallery_13.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item gallery-hidden" onclick="openLb(14)"><div class="bento-inner" style="background-image:url('./images/gallery_14.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item gallery-hidden" onclick="openLb(15)"><div class="bento-inner" style="background-image:url('./images/gallery_15.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item gallery-hidden" onclick="openLb(16)"><div class="bento-inner" style="background-image:url('./images/gallery_16.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item gallery-hidden" onclick="openLb(17)"><div class="bento-inner" style="background-image:url('./images/gallery_17.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
-      <div class="bento-item gallery-hidden" onclick="openLb(18)"><div class="bento-inner" style="background-image:url('./images/gallery_18.webp')"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item" onclick="openLb(1)"><div class="bento-inner"><img src="./images/gallery_01.webp" alt="" loading="eager"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item" onclick="openLb(2)"><div class="bento-inner"><img src="./images/gallery_02.webp" alt="" loading="eager"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item" onclick="openLb(3)"><div class="bento-inner"><img src="./images/gallery_03.webp" alt="" loading="eager"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item" onclick="openLb(4)"><div class="bento-inner"><img src="./images/gallery_04.webp" alt="" loading="lazy"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item" onclick="openLb(5)"><div class="bento-inner"><img src="./images/gallery_05.webp" alt="" loading="lazy"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item" onclick="openLb(6)"><div class="bento-inner"><img src="./images/gallery_06.webp" alt="" loading="lazy"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item" onclick="openLb(7)"><div class="bento-inner"><img src="./images/gallery_07.webp" alt="" loading="lazy"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item" onclick="openLb(8)"><div class="bento-inner"><img src="./images/gallery_08.webp" alt="" loading="lazy"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item" onclick="openLb(9)"><div class="bento-inner"><img src="./images/gallery_09.webp" alt="" loading="lazy"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item gallery-hidden" onclick="openLb(10)"><div class="bento-inner"><img src="./images/gallery_10.webp" alt="" loading="lazy"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item gallery-hidden" onclick="openLb(11)"><div class="bento-inner"><img src="./images/gallery_11.webp" alt="" loading="lazy"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item gallery-hidden" onclick="openLb(12)"><div class="bento-inner"><img src="./images/gallery_12.webp" alt="" loading="lazy"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item gallery-hidden" onclick="openLb(13)"><div class="bento-inner"><img src="./images/gallery_13.webp" alt="" loading="lazy"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item gallery-hidden" onclick="openLb(14)"><div class="bento-inner"><img src="./images/gallery_14.webp" alt="" loading="lazy"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item gallery-hidden" onclick="openLb(15)"><div class="bento-inner"><img src="./images/gallery_15.webp" alt="" loading="lazy"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item gallery-hidden" onclick="openLb(16)"><div class="bento-inner"><img src="./images/gallery_16.webp" alt="" loading="lazy"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item gallery-hidden" onclick="openLb(17)"><div class="bento-inner"><img src="./images/gallery_17.webp" alt="" loading="lazy"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
+      <div class="bento-item gallery-hidden" onclick="openLb(18)"><div class="bento-inner"><img src="./images/gallery_18.webp" alt="" loading="lazy"></div><div class="bento-overlay"><span class="bento-overlay-icon">🔍</span></div></div>
     </div>
     <div style="text-align:center;">
       <button type="button" class="more-btn" onclick="toggleMore()">
@@ -1187,7 +1191,7 @@ function shareKakao() {
     content: {
       title: '영연 ♡ 동진 — 결혼합니다',
       description: '2026년 6월 27일 토요일 오전 11시 30분\n이룸웨딩컨벤션 5F',
-      imageUrl: 'https://yoyonie.github.io/wedding-card/images/og_image.jpg',
+      imageUrl: 'https://yoyonie.github.io/dyp_wedding_card/images/og_image.jpg',
       link: {
         mobileWebUrl: window.location.href,
         webUrl: window.location.href,
@@ -1312,6 +1316,17 @@ function hideLoading() {
     ].join(';');
     c.appendChild(p);
   }
+  // pause hero particles when hero is out of view
+  const hero = document.getElementById('hero');
+  const heroOb = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      c.style.animationPlayState = en.isIntersecting ? '' : 'paused';
+      c.querySelectorAll('.particle').forEach(p => {
+        p.style.animationPlayState = en.isIntersecting ? '' : 'paused';
+      });
+    });
+  }, { threshold: 0 });
+  heroOb.observe(hero);
 })();
 
 /* ── Footer particles ── */
